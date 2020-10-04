@@ -1,7 +1,7 @@
 const ghpages = require("gh-pages");
 
 ghpages.publish(
-  "__sapper__/export/svelte-dev",
+  "__sapper__/export/sapper-dev",
   {
     branch: "master",
     repo: "https://github.com/ZuperZee/sapper-dev.git",
