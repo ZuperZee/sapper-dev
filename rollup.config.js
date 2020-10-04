@@ -10,6 +10,15 @@ import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
 import { builtinModules } from "module";
 
+const preprocess = sveltePreprocess({
+	scss: {
+		includePaths: ['src'],
+	},
+	postcss: {
+		plugins: [require('autoprefixer')],
+	}
+});
+
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
@@ -33,7 +42,7 @@ export default {
       svelte({
         dev,
         hydratable: true,
-        preprocess: sveltePreprocess(),
+        preprocess: preprocess,
         emitCss: true,
       }),
       resolve({
@@ -88,7 +97,7 @@ export default {
       svelte({
         generate: "ssr",
         hydratable: true,
-        preprocess: sveltePreprocess(),
+        preprocess: preprocess,
         dev,
       }),
       resolve({
