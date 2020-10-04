@@ -6,7 +6,7 @@
     "deploy": "npm run export && node ./scripts/deploy.js",
     "dev": "sapper dev",
     "build": "sapper build --legacy",
-    "export": "sapper export --legacy",
+    "export": "sapper export --basepath svelte-dev --legacy",
     "start": "node __sapper__/build",
     "validate": "svelte-check --ignore src/node_modules/@sapper"
   },
